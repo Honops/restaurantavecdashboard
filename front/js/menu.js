@@ -9,7 +9,7 @@ import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js
 const SUPABASE_URL = 'https://hkutmhlfmcfeyfhftzqb.supabase.co'
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhrdXRtaGxmbWNmZXlmaGZ0enFiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM0MDMwMDYsImV4cCI6MjA4ODk3OTAwNn0.ZZv-yKedzZYo3qpQ6tq_bBjG35RL8WiPqrgeryvL0bg'
 
-const supabase      = createClient(SUPABASE_URL, SUPABASE_KEY)
+const supabase      = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
 
 
 // =============================================
