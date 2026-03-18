@@ -5,32 +5,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Menu du restaurant — Découvrez nos plats de la semaine, du week-end et nos menus événementiels.">
   <title>Menu — Restaurant</title>
-  <link rel="stylesheet" href="css/menu.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
 
 <!-- =============================================
-     HEADER / NAVIGATION
+     HEADER — même structure que les autres pages
 ============================================= -->
-<header class="site-header">
-  <div class="header-inner">
+<header>
+  <nav class="nav-header">
+    <div class="logo">
+      <img src="assets/images/placeholder/logo.png" alt="Logo Restaurant">
+    </div>
+    <ul class="nav-menu">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="menu.html" class="active">Menu</a></li>
+      <li><a href="galerie.html">Galerie</a></li>
+      <li><a href="reservation.html" class="reserve-btn">Réserver</a></li>
+    </ul>
+  </nav>
+</header>
 
-    <a href="index.html" class="site-logo">🍽️ Restaurant</a>
 
-    <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu">
-      <span></span><span></span><span></span>
-    </button>
+<!-- =============================================
+     ONGLETS PRINCIPAUX
+============================================= -->
+<div class="menu-tabs-section">
+  <div class="menu-tabs-inner">
 
-    <nav class="site-nav" id="siteNav">
-      <a href="index.html">Accueil</a>
-      <a href="galerie.html">Galerie</a>
-      <a href="menu.html" class="nav-active">Menu</a>
-      <a href="reserve.html">Réservé</a>
-    </nav>
+    <div class="menu-tabs" role="tablist">
+      <button class="tab-btn" id="tab-semaine"   role="tab" data-tab="semaine"  >📅 Semaine</button>
+      <button class="tab-btn" id="tab-weekend"   role="tab" data-tab="weekend"  >🌅 Week-end</button>
+      <button class="tab-btn" id="tab-evenement" role="tab" data-tab="evenement">🎉 Événement</button>
+    </div>
+
+    <div class="event-subtabs" id="eventSubtabs" style="display:none;"></div>
 
   </div>
-</header>
+</div>
 
 
 <!-- =============================================
@@ -45,69 +58,25 @@
 
 
 <!-- =============================================
-     ONGLETS PRINCIPAUX
-============================================= -->
-<section class="menu-tabs-section">
-  <div class="menu-tabs-inner">
-
-    <div class="menu-tabs" role="tablist">
-      <button
-        class="tab-btn"
-        id="tab-semaine"
-        role="tab"
-        data-tab="semaine"
-      >📅 Semaine</button>
-
-      <button
-        class="tab-btn"
-        id="tab-weekend"
-        role="tab"
-        data-tab="weekend"
-      >🌅 Week-end</button>
-
-      <button
-        class="tab-btn"
-        id="tab-evenement"
-        role="tab"
-        data-tab="evenement"
-      >🎉 Événement</button>
-    </div>
-
-    <!-- Sous-onglets événements (dynamiques) -->
-    <div class="event-subtabs" id="eventSubtabs" style="display:none;">
-      <!-- Rempli par menu.js -->
-    </div>
-
-  </div>
-</section>
-
-
-<!-- =============================================
      CONTENU DU MENU
 ============================================= -->
 <main class="menu-main" id="menuMain">
 
   <!-- Panneau Semaine -->
   <div class="tab-panel" id="panel-semaine" role="tabpanel">
-    <div class="menu-loading" id="loading-semaine">
-      <div class="spinner-ring"></div>
-    </div>
+    <div class="menu-loading" id="loading-semaine"><div class="spinner-ring"></div></div>
     <div class="menu-grid" id="grid-semaine"></div>
   </div>
 
   <!-- Panneau Week-end -->
   <div class="tab-panel" id="panel-weekend" role="tabpanel">
-    <div class="menu-loading" id="loading-weekend">
-      <div class="spinner-ring"></div>
-    </div>
+    <div class="menu-loading" id="loading-weekend"><div class="spinner-ring"></div></div>
     <div class="menu-grid" id="grid-weekend"></div>
   </div>
 
   <!-- Panneau Événement -->
   <div class="tab-panel" id="panel-evenement" role="tabpanel">
-    <div class="menu-loading" id="loading-evenement">
-      <div class="spinner-ring"></div>
-    </div>
+    <div class="menu-loading" id="loading-evenement"><div class="spinner-ring"></div></div>
     <div class="menu-grid" id="grid-evenement"></div>
   </div>
 
@@ -115,19 +84,20 @@
 
 
 <!-- =============================================
-     FOOTER
+     FOOTER — même structure que les autres pages
 ============================================= -->
-<footer class="site-footer">
-  <p>© <span id="footerYear"></span> Restaurant — Tous droits réservés</p>
+<footer>
+  <div class="footer-contact">
+    <p>Téléphone : <a href="tel:+33123456789">01 23 45 67 89</a></p>
+    <p>Email : <a href="/cdn-cgi/l/email-protection#8be8e4e5ffeae8ffcbf9eef8ffeafef9eae5ffa5e8e4e6"><span class="__cf_email__" data-cfemail="31525e5f455052457143544245504443505f451f525e5c">[email&#160;protected]</span></a></p>
+    <div class="footer-social">
+      <a href="https://facebook.com/restaurant" target="_blank">Facebook</a> |
+      <a href="https://instagram.com/restaurant" target="_blank">Instagram</a>
+    </div>
+  </div>
+  <p class="footer-copyright">© Restaurant — Tous droits réservés</p>
 </footer>
 
 
 <!-- Supabase CDN -->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-<!-- Menu JS -->
-<script type="module" src="js/menu.js"></script>
-
-
-</body>
-</html>
+<script data-cfasync=
