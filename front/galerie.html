@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Galerie</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/galerie.css">
+</head>
+
+<body>
+
+<header>
+  <nav class="nav-header">
+
+    <ul class="nav-menu">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="galerie.html" class="active">Galerie</a></li>
+      <li><a href="reservation.html" class="reserve-btn">Réserver</a></li>
+    </ul>
+
+    <div class="logo">
+      <img src="assets/images/placeholder/logo.png" alt="Logo Restaurant">
+    </div>
+
+  </nav>
+</header>
+
+<main>
+<section class="galerie">
+<h2 class="center-title">Galerie</h2>
+
+<div class="galerie-container">
+
+<img src="https://cdn.jsdelivr.net/gh/Honops/restausite@main/asset/galerie/interior1.jpg" alt="Intérieur 1" class="galerie-item" data-index="0" loading="lazy">
+<img src="https://cdn.jsdelivr.net/gh/Honops/restausite@main/asset/galerie/interior2.jpg" alt="Intérieur 2" class="galerie-item" data-index="1" loading="lazy">
+<img src="https://cdn.jsdelivr.net/gh/Honops/restausite@main/asset/galerie/interieu3.jpg" alt="Intérieur 3" class="galerie-item" data-index="2" loading="lazy">
+<img src="https://cdn.jsdelivr.net/gh/Honops/restausite@main/asset/galerie/exterieur1.jpg" alt="Extérieur 1" class="galerie-item" data-index="3" loading="lazy">
+<img src="https://cdn.jsdelivr.net/gh/Honops/restausite@main/asset/galerie/exterieur2.jpg" alt="Extérieur 2" class="galerie-item" data-index="4" loading="lazy">
+<img src="https://cdn.jsdelivr.net/gh/Honops/restausite@main/asset/galerie/plat1.jpg" alt="Plat 1" class="galerie-item" data-index="5" loading="lazy">
+<img src="https://cdn.jsdelivr.net/gh/Honops/restausite@main/asset/galerie/plat2.jpg" alt="Plat 2" class="galerie-item" data-index="6" loading="lazy">
+<img src="https://cdn.jsdelivr.net/gh/Honops/restausite@main/asset/galerie/plat3.jpg" alt="Plat 3" class="galerie-item" data-index="7" loading="lazy">
+<img src="https://cdn.jsdelivr.net/gh/Honops/restausite@main/asset/galerie/plat4.jpg" alt="Plat 4" class="galerie-item" data-index="8" loading="lazy">
+<img src="https://cdn.jsdelivr.net/gh/Honops/restausite@main/asset/galerie/plat5.jpg" alt="Plat 5" class="galerie-item" data-index="9" loading="lazy">
+<img src="https://cdn.jsdelivr.net/gh/Honops/restausite@main/asset/galerie/plat6.jpg" alt="Plat 6" class="galerie-item" data-index="10" loading="lazy">
+<img src="https://cdn.jsdelivr.net/gh/Honops/restausite@main/asset/galerie/plat7.jpg" alt="Plat 7" class="galerie-item" data-index="11" loading="lazy">
+<img src="https://cdn.jsdelivr.net/gh/Honops/restausite@main/asset/galerie/plat8.jpg" alt="Plat 8" class="galerie-item" data-index="12" loading="lazy">
+
+</div>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+<span class="close">&times;</span>
+<img class="lightbox-img" src="" alt="Agrandie">
+<span class="prev">&#10094;</span>
+<span class="next">&#10095;</span>
+</div>
+
+</section>
+</main>
+
+<footer>
+<div class="footer-contact">
+<p>Téléphone : <a href="tel:+33123456789">01 23 45 67 89</a></p>
+<p>Email : <a href="mailto:contact@restaurant.com">contact@restaurant.com</a></p>
+<div class="footer-social">
+<a href="https://facebook.com/restaurant" target="_blank">Facebook</a> |
+<a href="https://instagram.com/restaurant" target="_blank">Instagram</a>
+</div>
+</div>
+<p>© Restaurant</p>
+</footer>
+
+<!-- Scripts -->
+<script src="js/firebase-config.js"></script>
+<script src="js/galerie.js" defer></script>
+<script src="js/main.js" defer></script>
+
+</body>
+</html>

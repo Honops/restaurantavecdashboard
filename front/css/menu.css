@@ -1,0 +1,599 @@
+/* =============================================
+   MENU PUBLIC — Provisoire & Performant
+   ============================================= */
+
+   *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  :root {
+    --bg:           #faf8f5;
+    --surface:      #ffffff;
+    --border:       #e8e2d9;
+    --accent:       #c8a45a;
+    --accent-dark:  #a8843a;
+    --accent-dim:   rgba(200, 164, 90, 0.12);
+    --text:         #1a1a1a;
+    --text-muted:   #888;
+    --text-light:   #aaa;
+    --radius-sm:    8px;
+    --radius:       12px;
+    --radius-lg:    16px;
+    --shadow-sm:    0 2px 8px rgba(0,0,0,0.06);
+    --shadow:       0 4px 20px rgba(0,0,0,0.1);
+    --header-h:     60px;
+    --max-w:        1100px;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+  
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+  
+  img, video {
+    display: block;
+    max-width: 100%;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  
+  /* =============================================
+     HEADER
+     ============================================= */
+  
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    height: var(--header-h);
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .header-inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+  }
+  
+  .site-logo {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--accent-dark);
+    letter-spacing: 0.3px;
+    flex-shrink: 0;
+  }
+  
+  .site-nav {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+  
+  .site-nav a {
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    transition: color 0.2s;
+    position: relative;
+  }
+  
+  .site-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: width 0.2s;
+  }
+  
+  .site-nav a:hover { color: var(--text); }
+  .site-nav a:hover::after { width: 100%; }
+  
+  .site-nav a.nav-active {
+    color: var(--accent-dark);
+    font-weight: 700;
+  }
+  
+  .site-nav a.nav-active::after {
+    width: 100%;
+  }
+  
+  /* Burger mobile */
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+  
+  .nav-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--text);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+  
+  .nav-toggle.open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .nav-toggle.open span:nth-child(2) {
+    opacity: 0;
+  }
+  .nav-toggle.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+  
+  
+  /* =============================================
+     HERO
+     ============================================= */
+  
+  .menu-hero {
+    background: linear-gradient(135deg, #1a1208 0%, #2d1f08 50%, #1a1208 100%);
+    padding: 52px 24px 48px;
+    text-align: center;
+  }
+  
+  .menu-hero-inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+  
+  .menu-hero h1 {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 800;
+    color: var(--accent);
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
+  
+  .menu-hero p {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.55);
+  }
+  
+  
+  /* =============================================
+     ONGLETS
+     ============================================= */
+  
+  .menu-tabs-section {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: var(--header-h);
+    z-index: 90;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .menu-tabs-inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  .menu-tabs {
+    display: flex;
+    gap: 4px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+  .menu-tabs::-webkit-scrollbar { display: none; }
+  
+  .tab-btn {
+    flex-shrink: 0;
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    padding: 14px 20px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: color 0.2s, border-color 0.2s;
+    white-space: nowrap;
+  }
+  
+  .tab-btn:hover {
+    color: var(--text);
+  }
+  
+  .tab-btn.tab-active {
+    color: var(--accent-dark);
+    border-bottom-color: var(--accent);
+  }
+  
+  /* Sous-onglets événements */
+  .event-subtabs {
+    display: flex;
+    gap: 8px;
+    padding: 10px 0 12px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    flex-wrap: wrap;
+  }
+  
+  .event-subtabs::-webkit-scrollbar { display: none; }
+  
+  .subtab-btn {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 5px 14px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  
+  .subtab-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent-dark);
+  }
+  
+  .subtab-btn.subtab-active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+  }
+  
+  .subtab-btn.subtab-today {
+    border-color: var(--accent);
+    color: var(--accent-dark);
+  }
+  
+  
+  /* =============================================
+     PANNEAUX
+     ============================================= */
+  
+  .menu-main {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 32px 24px 60px;
+    min-height: 60vh;
+  }
+  
+  .tab-panel {
+    display: none;
+  }
+  
+  .tab-panel.panel-active {
+    display: block;
+    animation: fadeIn 0.25s ease;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  
+  
+  /* =============================================
+     SPINNER
+     ============================================= */
+  
+  .menu-loading {
+    display: flex;
+    justify-content: center;
+    padding: 60px;
+  }
+  
+  .menu-loading.hidden { display: none; }
+  
+  .spinner-ring {
+    width: 36px;
+    height: 36px;
+    border: 3px solid var(--border);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+  }
+  
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  
+  
+  /* =============================================
+     CATÉGORIES
+     ============================================= */
+  
+  .menu-category {
+    margin-bottom: 40px;
+  }
+  
+  .category-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--accent-dark);
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--accent-dim);
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .category-count {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-light);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 1px 8px;
+  }
+  
+  
+  /* =============================================
+     GRILLE PLATS
+     2 images par ligne + vidéo en dessous
+     ============================================= */
+  
+  .dishes-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  
+  /* Carte plat */
+  .dish-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    will-change: transform;
+  }
+  
+  .dish-card:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: var(--shadow);
+  }
+  
+  /* Image */
+  .dish-img-wrapper {
+    overflow: hidden;
+    height: 160px;
+    background: #f0ece4;
+  }
+  
+  .dish-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+    will-change: transform;
+  }
+  
+  .dish-card:hover .dish-img {
+    transform: scale(1.07);
+  }
+  
+  .dish-no-img {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.2rem;
+    color: #ccc;
+    background: #f5f2ec;
+  }
+  
+  /* Infos */
+  .dish-info {
+    padding: 10px 12px 12px;
+  }
+  
+  .dish-name {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .dish-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+  }
+  
+  .dish-price {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--accent-dark);
+  }
+  
+  .dish-category {
+    font-size: 0.72rem;
+    color: var(--text-light);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 1px 7px;
+  }
+  
+  /* Vidéo — pleine largeur sous les 2 images */
+  .dish-video-card {
+    grid-column: 1 / -1;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 0;
+  }
+  
+  .dish-video-wrapper {
+    height: 120px;
+    background: #000;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  
+  .dish-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .dish-video-info {
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+  }
+  
+  .dish-video-info .dish-name {
+    font-size: 0.95rem;
+    white-space: normal;
+  }
+  
+  
+  /* =============================================
+     ÉTAT VIDE
+     ============================================= */
+  
+  .menu-empty {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-muted);
+  }
+  
+  .menu-empty-icon {
+    font-size: 2.8rem;
+    display: block;
+    margin-bottom: 12px;
+  }
+  
+  .menu-empty p {
+    font-size: 0.9rem;
+  }
+  
+  
+  /* =============================================
+     FOOTER
+     ============================================= */
+  
+  .site-footer {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    text-align: center;
+    padding: 20px;
+    font-size: 0.8rem;
+    color: var(--text-light);
+  }
+  
+  
+  /* =============================================
+     RESPONSIVE
+     ============================================= */
+  
+  @media (max-width: 768px) {
+  
+    /* Nav mobile */
+    .nav-toggle { display: flex; }
+  
+    .site-nav {
+      display: none;
+      position: absolute;
+      top: var(--header-h);
+      left: 0;
+      right: 0;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      flex-direction: column;
+      gap: 0;
+      padding: 8px 0;
+      box-shadow: var(--shadow);
+      z-index: 99;
+    }
+  
+    .site-nav.nav-open { display: flex; }
+  
+    .site-nav a {
+      padding: 13px 24px;
+      font-size: 0.95rem;
+      border-bottom: 1px solid var(--border);
+    }
+  
+    .site-nav a:last-child { border-bottom: none; }
+    .site-nav a::after { display: none; }
+  
+    /* Grille mobile : 1 colonne */
+    .dishes-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .dish-video-card {
+      grid-template-columns: 1fr;
+    }
+  
+    .dish-video-wrapper {
+      height: 180px;
+    }
+  
+    .menu-hero {
+      padding: 36px 16px 32px;
+    }
+  
+    .menu-main {
+      padding: 24px 16px 48px;
+    }
+  
+  }
+  
+  @media (max-width: 480px) {
+  
+    .tab-btn {
+      padding: 12px 14px;
+      font-size: 0.82rem;
+    }
+  
+    .menu-hero h1 {
+      font-size: 1.6rem;
+    }
+  
+  }

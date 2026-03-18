@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Menu du restaurant — Découvrez nos plats de la semaine, du week-end et nos menus événementiels.">
+  <title>Menu — Restaurant</title>
+  <link rel="stylesheet" href="css/menu.css">
+</head>
+<body>
+
+
+<!-- =============================================
+     HEADER / NAVIGATION
+============================================= -->
+<header class="site-header">
+  <div class="header-inner">
+
+    <a href="index.html" class="site-logo">🍽️ Restaurant</a>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="site-nav" id="siteNav">
+      <a href="index.html">Accueil</a>
+      <a href="galerie.html">Galerie</a>
+      <a href="menu.html" class="nav-active">Menu</a>
+      <a href="reserve.html">Réservé</a>
+    </nav>
+
+  </div>
+</header>
+
+
+<!-- =============================================
+     HERO MENU
+============================================= -->
+<section class="menu-hero">
+  <div class="menu-hero-inner">
+    <h1>Notre Menu</h1>
+    <p id="menuSubtitle">Chargement...</p>
+  </div>
+</section>
+
+
+<!-- =============================================
+     ONGLETS PRINCIPAUX
+============================================= -->
+<section class="menu-tabs-section">
+  <div class="menu-tabs-inner">
+
+    <div class="menu-tabs" role="tablist">
+      <button
+        class="tab-btn"
+        id="tab-semaine"
+        role="tab"
+        data-tab="semaine"
+      >📅 Semaine</button>
+
+      <button
+        class="tab-btn"
+        id="tab-weekend"
+        role="tab"
+        data-tab="weekend"
+      >🌅 Week-end</button>
+
+      <button
+        class="tab-btn"
+        id="tab-evenement"
+        role="tab"
+        data-tab="evenement"
+      >🎉 Événement</button>
+    </div>
+
+    <!-- Sous-onglets événements (dynamiques) -->
+    <div class="event-subtabs" id="eventSubtabs" style="display:none;">
+      <!-- Rempli par menu.js -->
+    </div>
+
+  </div>
+</section>
+
+
+<!-- =============================================
+     CONTENU DU MENU
+============================================= -->
+<main class="menu-main" id="menuMain">
+
+  <!-- Panneau Semaine -->
+  <div class="tab-panel" id="panel-semaine" role="tabpanel">
+    <div class="menu-loading" id="loading-semaine">
+      <div class="spinner-ring"></div>
+    </div>
+    <div class="menu-grid" id="grid-semaine"></div>
+  </div>
+
+  <!-- Panneau Week-end -->
+  <div class="tab-panel" id="panel-weekend" role="tabpanel">
+    <div class="menu-loading" id="loading-weekend">
+      <div class="spinner-ring"></div>
+    </div>
+    <div class="menu-grid" id="grid-weekend"></div>
+  </div>
+
+  <!-- Panneau Événement -->
+  <div class="tab-panel" id="panel-evenement" role="tabpanel">
+    <div class="menu-loading" id="loading-evenement">
+      <div class="spinner-ring"></div>
+    </div>
+    <div class="menu-grid" id="grid-evenement"></div>
+  </div>
+
+</main>
+
+
+<!-- =============================================
+     FOOTER
+============================================= -->
+<footer class="site-footer">
+  <p>© <span id="footerYear"></span> Restaurant — Tous droits réservés</p>
+</footer>
+
+
+<!-- Supabase CDN -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<!-- Menu JS -->
+<script type="module" src="js/menu.js"></script>
+
+
+</body>
+</html>

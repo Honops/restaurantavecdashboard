@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connexion — Dashboard Restaurant</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+  <div class="login-wrapper">
+
+    <div class="login-card">
+
+      <div class="login-logo">
+        <span class="logo-icon">🍽️</span>
+        <h1>Restaurant</h1>
+        <p>Espace administrateur</p>
+      </div>
+
+      <div id="loginError" class="error-msg" style="display:none;"></div>
+
+      <div class="login-form">
+
+        <div class="input-group">
+          <label for="loginEmail">Email</label>
+          <input type="email" id="loginEmail" placeholder="admin@restaurant.fr" autocomplete="email">
+        </div>
+
+        <div class="input-group">
+          <label for="loginPassword">Mot de passe</label>
+          <div class="password-wrapper">
+            <input type="password" id="loginPassword" placeholder="••••••••" autocomplete="current-password">
+            <button type="button" id="togglePassword" class="toggle-pwd">👁</button>
+          </div>
+        </div>
+
+        <button id="loginBtn" class="btn-login">
+          <span id="loginBtnText">Se connecter</span>
+          <span id="loginSpinner" class="spinner" style="display:none;"></span>
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+  <script type="module" src="./login.js"></script>
+</body>
+</html>

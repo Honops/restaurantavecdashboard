@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Restaurant</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <header>
+      <nav class="nav-header">
+        <ul class="nav-menu">
+          <li><a href="index.html" class="active">Accueil</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="galerie.html">Galerie</a></li>
+          <li><a href="reservation.html" class="reserve-btn">Réserver</a></li>
+        </ul>
+        <div class="logo">
+          <img src="assets/images/placeholder/logo.png" alt="Logo Restaurant" />
+        </div>
+      </nav>
+    </header>
+
+    <!-- HERO INTRO -->
+    <section class="hero-intro">
+      <h2>Bienvenue au Restaurant</h2>
+      <p>Découvrez notre cuisine méditerranéenne.</p>
+      <a href="menu.html" class="btn">Voir le menu</a>
+    </section>
+
+    <!-- HERO MEDIA -->
+    <section class="hero-media">
+      <!-- grande image -->
+      <div class="hero-main-image">
+        <img
+          src="https://cdn.jsdelivr.net/gh/Honops/restausite@main/asset/acceuil/imgrestaurant.jpg"
+          alt="Grande image restaurant"
+          loading="lazy"
+        />
+      </div>
+
+      <!-- plats populaires -->
+      <div class="popular-dishes">
+        <div class="dish">
+          <img
+            src="https://cdn.jsdelivr.net/gh/Honops/restausite@main/asset/acceuil/paellamaison.jpg"
+            alt="Paella maison"
+            loading="lazy"
+          />
+          <p>Paella maison</p>
+        </div>
+        <div class="dish">
+          <img
+            src="https://cdn.jsdelivr.net/gh/Honops/restausite@main/asset/acceuil/pizzaartisanale.jpg"
+            alt="Pizza artisanale"
+            loading="lazy"
+          />
+          <p>Pizza artisanale</p>
+        </div>
+        <div class="dish">
+          <img
+            src="https://cdn.jsdelivr.net/gh/Honops/restausite@main/asset/acceuil/pattesfraises.jpg"
+            alt="Pâtes fraîches"
+            loading="lazy"
+          />
+          <p>Pâtes fraîches</p>
+        </div>
+        <div class="dish">
+          <img
+            src="https://cdn.jsdelivr.net/gh/Honops/restausite@main/asset/acceuil/dessertmaison.jpg"
+            alt="Dessert maison"
+            loading="lazy"
+          />
+          <p>Dessert maison</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Présentation restaurant -->
+    <section class="presentation">
+      <h2>Notre restaurant</h2>
+      <p>Produits frais, cuisine maison et ambiance chaleureuse.</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-contact">
+        <p>Téléphone : <a href="tel:+33123456789">01 23 45 67 89</a></p>
+        <p>
+          Email :
+          <a href="mailto:contact@restaurant.com">contact@restaurant.com</a>
+        </p>
+        <div class="footer-social">
+          <a href="https://facebook.com/restaurant" target="_blank">Facebook</a>
+          |
+          <a href="https://instagram.com/restaurant" target="_blank"
+            >Instagram</a
+          >
+        </div>
+      </div>
+      <p class="footer-copyright">© Restaurant</p>
+    </footer>
+
+    <!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabaseClient.js"></script>
+    <script src="js/main.js" defer></script>
+  </body>
+</html>
+

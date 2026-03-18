@@ -1,0 +1,630 @@
+css/reservation.css
+/* =============================================
+   RÉSERVATION — Propre & Clair
+   Compatible avec style.css existant
+   ============================================= */
+
+/* =============================================
+   HERO
+   ============================================= */
+
+.res-hero {
+  background: linear-gradient(135deg, #1a1208 0%, #2d1f08 50%, #1a1208 100%);
+  padding: 52px 24px 48px;
+  text-align: center;
+}
+
+.res-hero-inner {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.res-hero h1 {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 800;
+  color: #e8c97e;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.res-hero p {
+  font-size: 0.92rem;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.6;
+}
+
+
+/* =============================================
+   MAIN WRAPPER
+   ============================================= */
+
+.res-main {
+  background: #faf8f5;
+  min-height: 70vh;
+  padding: 40px 20px 80px;
+}
+
+.res-form-wrapper {
+  max-width: 660px;
+  margin: 0 auto;
+}
+
+
+/* =============================================
+   ÉTAPES VISUELLES
+   ============================================= */
+
+.res-steps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin-bottom: 36px;
+}
+
+.res-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.step-number {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #e8e2d9;
+  color: #aaa;
+  font-size: 0.9rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  border: 2px solid transparent;
+}
+
+.step-label {
+  font-size: 0.72rem;
+  color: #aaa;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: color 0.3s;
+}
+
+/* Étape active */
+.res-step.active .step-number {
+  background: #c8a45a;
+  color: #fff;
+  border-color: #c8a45a;
+  box-shadow: 0 0 0 4px rgba(200,164,90,0.15);
+}
+
+.res-step.active .step-label {
+  color: #a8843a;
+  font-weight: 700;
+}
+
+/* Étape terminée */
+.res-step.done .step-number {
+  background: #4caf82;
+  color: #fff;
+  border-color: #4caf82;
+}
+
+.res-step.done .step-label {
+  color: #4caf82;
+}
+
+/* Ligne entre étapes */
+.res-step-line {
+  flex: 1;
+  height: 2px;
+  background: #e8e2d9;
+  margin: 0 8px;
+  margin-bottom: 22px;
+  max-width: 80px;
+  transition: background 0.3s;
+}
+
+
+/* =============================================
+   MESSAGES GLOBAUX
+   ============================================= */
+
+.res-msg {
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 0.88rem;
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.res-error {
+  background: rgba(224,92,92,0.08);
+  border: 1px solid #e05c5c;
+  color: #c94444;
+}
+
+.res-success {
+  background: rgba(76,175,130,0.08);
+  border: 1px solid #4caf82;
+  color: #2d8a5e;
+}
+
+
+/* =============================================
+   PANNEAU D'ÉTAPE
+   ============================================= */
+
+.res-step-panel {
+  background: #ffffff;
+  border: 1px solid #e8e2d9;
+  border-radius: 16px;
+  padding: 32px 28px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  animation: fadeInPanel 0.25s ease;
+}
+
+@keyframes fadeInPanel {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.res-step-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 24px;
+  padding-bottom: 14px;
+  border-bottom: 2px solid rgba(200,164,90,0.2);
+}
+
+
+/* =============================================
+   CHAMPS
+   ============================================= */
+
+.res-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.res-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.res-field:last-of-type {
+  margin-bottom: 0;
+}
+
+.res-field label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #555;
+}
+
+.req {
+  color: #e05c5c;
+  font-size: 0.75rem;
+}
+
+.res-field input,
+.res-field select,
+.res-field textarea {
+  background: #faf8f5;
+  border: 1px solid #e8e2d9;
+  border-radius: 10px;
+  padding: 11px 14px;
+  font-size: 0.9rem;
+  color: #1a1a1a;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  width: 100%;
+  font-family: inherit;
+}
+
+.res-field input:focus,
+.res-field select:focus,
+.res-field textarea:focus {
+  border-color: #c8a45a;
+  box-shadow: 0 0 0 3px rgba(200,164,90,0.12);
+  background: #fff;
+}
+
+.res-field input::placeholder,
+.res-field textarea::placeholder {
+  color: #bbb;
+}
+
+.res-field select option {
+  background: #fff;
+  color: #1a1a1a;
+}
+
+.res-field textarea {
+  resize: vertical;
+  min-height: 90px;
+  line-height: 1.5;
+}
+
+/* Erreur par champ */
+.field-error {
+  font-size: 0.78rem;
+  color: #e05c5c;
+  min-height: 16px;
+  line-height: 1.3;
+}
+
+/* Compteur caractères */
+.char-count {
+  font-size: 0.75rem;
+  color: #bbb;
+  text-align: right;
+  margin-top: -4px;
+}
+
+
+/* =============================================
+   CRÉNEAUX HORAIRES
+   ============================================= */
+
+.res-slots {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.slot-btn {
+  background: #faf8f5;
+  border: 1px solid #e8e2d9;
+  border-radius: 10px;
+  padding: 10px 18px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #888;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.slot-btn:hover {
+  border-color: #c8a45a;
+  color: #a8843a;
+  background: rgba(200,164,90,0.06);
+}
+
+.slot-btn.slot-active {
+  background: #c8a45a;
+  border-color: #c8a45a;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(200,164,90,0.3);
+}
+
+
+/* =============================================
+   PLACEMENT (RADIO)
+   ============================================= */
+
+.res-seating {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.seating-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #faf8f5;
+  border: 1px solid #e8e2d9;
+  border-radius: 10px;
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.88rem;
+  color: #555;
+  flex: 1;
+  min-width: 120px;
+  justify-content: center;
+}
+
+.seating-option:hover {
+  border-color: #c8a45a;
+  color: #a8843a;
+}
+
+.seating-option input[type="radio"] {
+  display: none;
+}
+
+.seating-option:has(input:checked) {
+  background: rgba(200,164,90,0.1);
+  border-color: #c8a45a;
+  color: #a8843a;
+  font-weight: 700;
+}
+
+
+/* =============================================
+   NAVIGATION ÉTAPES
+   ============================================= */
+
+.res-form-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid #f0ece4;
+}
+
+.btn-res-next,
+.btn-res-submit {
+  background: #c8a45a;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 28px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-res-next:hover,
+.btn-res-submit:hover {
+  background: #a8843a;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(200,164,90,0.3);
+}
+
+.btn-res-next:active,
+.btn-res-submit:active {
+  transform: translateY(0);
+}
+
+.btn-res-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-res-back {
+  background: transparent;
+  border: 1px solid #e8e2d9;
+  border-radius: 10px;
+  padding: 11px 20px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #888;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-res-back:hover {
+  border-color: #c8a45a;
+  color: #a8843a;
+}
+
+/* Spinner */
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255,255,255,0.4);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+  display: inline-block;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+
+/* =============================================
+   PANNEAU SUCCÈS
+   ============================================= */
+
+.res-success-panel {
+  background: #fff;
+  border: 1px solid #e8e2d9;
+  border-radius: 16px;
+  padding: 40px 28px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  animation: fadeInPanel 0.3s ease;
+}
+
+.res-success-icon {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.res-success-panel h2 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+}
+
+.res-success-panel p {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+.res-success-note {
+  font-size: 0.82rem !important;
+  color: #aaa !important;
+  margin-top: 16px;
+  font-style: italic;
+}
+
+/* Récapitulatif */
+.recap-card {
+  background: #faf8f5;
+  border: 1px solid #e8e2d9;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+  text-align: left;
+}
+
+.recap-number {
+  font-size: 0.82rem;
+  font-family: monospace;
+  color: #a8843a;
+  font-weight: 700;
+  text-align: center;
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid #e8e2d9;
+  letter-spacing: 1px;
+}
+
+.recap-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.88rem;
+  color: #888;
+  padding: 6px 0;
+  border-bottom: 1px solid #f5f2ec;
+}
+
+.recap-row:last-of-type {
+  border-bottom: none;
+}
+
+.recap-row strong {
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+.recap-status {
+  text-align: center;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid #e8e2d9;
+}
+
+/* Statut badge (page publique) */
+.status-badge {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 20px;
+  padding: 4px 14px;
+}
+
+.status-en_attente {
+  background: rgba(232,168,56,0.1);
+  border: 1px solid #e8a838;
+  color: #b87d1a;
+}
+
+.status-confirmee {
+  background: rgba(76,175,130,0.1);
+  border: 1px solid #4caf82;
+  color: #2d8a5e;
+}
+
+.status-annulee {
+  background: rgba(224,92,92,0.1);
+  border: 1px solid #e05c5c;
+  color: #c94444;
+}
+
+/* Bouton nouvelle réservation */
+.btn-res-new {
+  background: #c8a45a;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 28px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 20px;
+}
+
+.btn-res-new:hover {
+  background: #a8843a;
+  transform: translateY(-1px);
+}
+
+
+/* =============================================
+   RESPONSIVE
+   ============================================= */
+
+@media (max-width: 600px) {
+
+  .res-step-panel {
+    padding: 24px 18px;
+  }
+
+  .res-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .res-slots {
+    gap: 8px;
+  }
+
+  .slot-btn {
+    flex: 1;
+    min-width: 80px;
+    text-align: center;
+    padding: 10px 10px;
+    font-size: 0.82rem;
+  }
+
+  .res-seating {
+    flex-direction: column;
+  }
+
+  .seating-option {
+    min-width: unset;
+  }
+
+  .res-form-nav {
+    flex-direction: column-reverse;
+    gap: 10px;
+  }
+
+  .btn-res-next,
+  .btn-res-submit,
+  .btn-res-back {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .res-hero {
+    padding: 36px 16px 32px;
+  }
+
+  .res-steps {
+    gap: 0;
+  }
+
+  .res-step-line {
+    max-width: 40px;
+  }
+
+}

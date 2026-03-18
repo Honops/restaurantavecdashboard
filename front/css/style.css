@@ -1,0 +1,356 @@
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===== BODY ===== */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(120deg, #f4f4f4, #e8ebf0);
+  color: #222;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-top: 80px;
+  transition: background 0.5s, color 0.5s;
+}
+
+/* Mode jour */
+body.day-mode {
+  background: linear-gradient(120deg, #f4f4f4, #e8ebf0);
+  color: #222;
+}
+
+/* Mode nuit */
+body.night-mode {
+  background: linear-gradient(120deg, #1c1c1c, #2b2b2b);
+  color: #f1f1f1;
+}
+
+body.night-mode header,
+body.night-mode section,
+body.night-mode footer {
+  filter: brightness(0.85);
+}
+
+/* ===== HEADER ===== */
+.nav-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  background-image: url("https://raw.githubusercontent.com/Honops/restausite/refs/heads/main/asset/acceuil/bandeauhaut.jpg");
+  background-size: cover;
+  background-position: center;
+  border-bottom: 3px solid rgba(0,0,0,0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.nav-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.65);
+  z-index: -1;
+}
+
+.logo img {
+  height: 40px;
+}
+
+/* menu */
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  padding-bottom: 5px;
+  transition: 0.3s;
+}
+
+.nav-menu a:hover {
+  color: #ff69b4;
+}
+
+.nav-menu a.active {
+  border-bottom: 3px solid #ff69b4;
+}
+
+/* bouton réserver */
+.reserve-btn {
+  font-size: 18px;
+  font-weight: bold;
+  background: #ff69b4;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+.reserve-btn:hover {
+  background: #ff85c1;
+}
+
+/* ===== HERO INTRO ===== */
+.hero-intro {
+  text-align: center;
+  padding: 60px 20px;
+  background-image: url("https://raw.githubusercontent.com/Honops/restausite/refs/heads/main/asset/acceuil/bacgroundacceil.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-intro::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  z-index: -1;
+}
+
+.hero-intro h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.hero-intro p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.hero-intro .btn {
+  padding: 10px 20px;
+  background: #ff69b4;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.hero-intro .btn:hover {
+  background: #ff85c1;
+}
+
+/* ===== HERO MEDIA ===== */
+.hero-media {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.hero-main-image img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+/* ===== PLATS POPULAIRES ===== */
+.popular-dishes {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.popular-dishes .dish {
+  flex: 1 1 calc(25% - 10px); /* 4 par ligne */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.popular-dishes .dish img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.popular-dishes .dish img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.popular-dishes .dish p {
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+/* ===== GALERIE GRID PRO ===== */
+.galerie-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  width: 100%;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.galerie-item {
+  width: 100%;
+  aspect-ratio: 1 / 1; 
+  object-fit: cover;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.galerie-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* ===== LIGHTBOX ===== */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  inset: 0;
+  background: rgba(0,0,0,0.92);
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox-img {
+  max-width: 90%;
+  max-height: 85%;
+  border-radius: 10px;
+  animation: zoomIn 0.3s ease;
+}
+
+@keyframes zoomIn {
+  from {transform: scale(0.9); opacity:0;}
+  to {transform: scale(1); opacity:1;}
+}
+
+.lightbox .close,
+.lightbox .prev,
+.lightbox .next {
+  position: absolute;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+}
+
+.lightbox .close { top: 20px; right: 30px; }
+.lightbox .prev { top: 50%; left: 30px; transform: translateY(-50%); }
+.lightbox .next { top: 50%; right: 30px; transform: translateY(-50%); }
+
+/* ===== SECTIONS ===== */
+section {
+  padding: 20px;
+  max-width: 1000px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+section h2 {
+  margin-bottom: 15px;
+}
+
+section p {
+  margin-bottom: 15px;
+}
+
+.center-title {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin: 0 0 20px 0;
+}
+
+/* ===== FORMULAIRE ===== */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 400px;
+  margin: auto;
+}
+
+form input {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+form button {
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  background: #ff69b4;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+form button:hover {
+  background: #ff85c1;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: #222;
+  color: white;
+  text-align: center;
+  margin-top: auto;
+  padding: 15px 20px;
+  font-size: 0.9rem;
+}
+
+footer a {
+  color: #ff69b4;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+  .nav-header { flex-direction: row; }
+  .nav-menu { gap: 15px; font-size: 14px; }
+  .logo img { height: 35px; }
+
+  .popular-dishes .dish { flex: 1 1 calc(50% - 5px); }
+  .menu-section .images img { width: calc(50% - 5px); }
+  .galerie-container { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .galerie-item { width: 100%; aspect-ratio: auto; height: 150px; }
+  .lightbox .close, .lightbox .prev, .lightbox .next { font-size: 30px; }
+}
