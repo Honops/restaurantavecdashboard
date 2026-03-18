@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Réservez votre table en ligne — Restaurant">
-  <title>Réservation — Restaurant</title>
-  <link rel="stylesheet" href="css/reservation.css">
+  <meta name="description" content="Menu du restaurant — Découvrez nos plats de la semaine, du week-end et nos menus événementiels.">
+  <title>Menu — Restaurant</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
+<body>
 
-<body id="reservationPage">
 
 <!-- =============================================
-     HEADER
+     HEADER — même structure que les autres pages
 ============================================= -->
 <header>
   <nav class="nav-header">
@@ -20,252 +20,84 @@
     </div>
     <ul class="nav-menu">
       <li><a href="index.html">Accueil</a></li>
-      <li><a href="menu.html">Menu</a></li>
+      <li><a href="menu.html" class="active">Menu</a></li>
       <li><a href="galerie.html">Galerie</a></li>
-      <li><a href="reservation.html" class="active reserve-btn">Réserver</a></li>
+      <li><a href="reservation.html" class="reserve-btn">Réserver</a></li>
     </ul>
   </nav>
 </header>
 
 
 <!-- =============================================
-     HERO
+     ONGLETS PRINCIPAUX
 ============================================= -->
-<section class="res-hero">
-  <div class="res-hero-inner">
-    <h1>Réserver une table</h1>
-    <p>Remplissez le formulaire ci-dessous et nous confirmerons votre réservation rapidement.</p>
+<div class="menu-tabs-section">
+  <div class="menu-tabs-inner">
+
+    <div class="menu-tabs" role="tablist">
+      <button class="tab-btn" id="tab-semaine"   role="tab" data-tab="semaine"  >📅 Semaine</button>
+      <button class="tab-btn" id="tab-weekend"   role="tab" data-tab="weekend"  >🌅 Week-end</button>
+      <button class="tab-btn" id="tab-evenement" role="tab" data-tab="evenement">🎉 Événement</button>
+    </div>
+
+    <div class="event-subtabs" id="eventSubtabs" style="display:none;"></div>
+
+  </div>
+</div>
+
+
+<!-- =============================================
+     HERO MENU
+============================================= -->
+<section class="menu-hero">
+  <div class="menu-hero-inner">
+    <h1>Notre Menu</h1>
+    <p id="menuSubtitle">Chargement...</p>
   </div>
 </section>
 
 
 <!-- =============================================
-     FORMULAIRE
+     CONTENU DU MENU
 ============================================= -->
-<main class="res-main">
-  <div class="res-form-wrapper">
+<main class="menu-main" id="menuMain">
 
-    <!-- Étapes visuelles -->
-    <div class="res-steps">
-      <div class="res-step active" id="step1-indicator">
-        <span class="step-number">1</span>
-        <span class="step-label">Vos infos</span>
-      </div>
-      <div class="res-step-line"></div>
-      <div class="res-step" id="step2-indicator">
-        <span class="step-number">2</span>
-        <span class="step-label">Date & table</span>
-      </div>
-      <div class="res-step-line"></div>
-      <div class="res-step" id="step3-indicator">
-        <span class="step-number">3</span>
-        <span class="step-label">Confirmation</span>
-      </div>
-    </div>
-
-    <!-- Messages globaux -->
-    <div id="resError"   class="res-msg res-error"   style="display:none;"></div>
-    <div id="resSuccess" class="res-msg res-success"  style="display:none;"></div>
-
-    <form id="reservationForm" novalidate>
-
-      <!-- ======= ÉTAPE 1 : Infos personnelles ======= -->
-      <div class="res-step-panel" id="panel-step1">
-
-        <h2 class="res-step-title">👤 Vos informations</h2>
-
-        <div class="res-row">
-          <div class="res-field">
-            <label for="resFirstname">Prénom <span class="req">*</span></label>
-            <input type="text" id="resFirstname" placeholder="Marie" maxlength="50" required>
-            <span class="field-error" id="err-firstname"></span>
-          </div>
-          <div class="res-field">
-            <label for="resLastname">Nom <span class="req">*</span></label>
-            <input type="text" id="resLastname" placeholder="Dupont" maxlength="50" required>
-            <span class="field-error" id="err-lastname"></span>
-          </div>
-        </div>
-
-        <div class="res-row">
-          <div class="res-field">
-            <label for="resEmail">Email <span class="req">*</span></label>
-            <input type="email" id="resEmail" placeholder="marie@email.com" required>
-            <span class="field-error" id="err-email"></span>
-          </div>
-          <div class="res-field">
-            <label for="resPhone">Téléphone <span class="req">*</span></label>
-            <input type="tel" id="resPhone" placeholder="+33 6 12 34 56 78" required>
-            <span class="field-error" id="err-phone"></span>
-          </div>
-        </div>
-
-        <div class="res-field">
-          <label for="resOccasion">Occasion spéciale</label>
-          <select id="resOccasion">
-            <option value="">Aucune occasion particulière</option>
-            <option value="Anniversaire">🎂 Anniversaire</option>
-            <option value="Romantique">💕 Dîner romantique</option>
-            <option value="Mariage">💍 Anniversaire de mariage</option>
-            <option value="Professionnel">💼 Repas professionnel</option>
-            <option value="Famille">👨‍👩‍👧 Repas de famille</option>
-            <option value="Autre">✨ Autre occasion</option>
-          </select>
-        </div>
-
-        <div class="res-field">
-          <label for="resAllergy">Allergies / régime alimentaire</label>
-          <input
-            type="text"
-            id="resAllergy"
-            placeholder="Ex: intolérance au gluten, végétarien..."
-            maxlength="200"
-          >
-        </div>
-
-        <div class="res-form-nav">
-          <span></span>
-          <button type="button" id="toStep2" class="btn-res-next">
-            Suivant →
-          </button>
-        </div>
-
-      </div>
-
-
-      <!-- ======= ÉTAPE 2 : Date & Table ======= -->
-      <div class="res-step-panel" id="panel-step2" style="display:none;">
-
-        <h2 class="res-step-title">📅 Votre réservation</h2>
-
-        <div class="res-row">
-          <div class="res-field">
-            <label for="resDate">Date <span class="req">*</span></label>
-            <input type="date" id="resDate" required>
-            <span class="field-error" id="err-date"></span>
-          </div>
-          <div class="res-field">
-            <label for="resPeople">Nombre de personnes <span class="req">*</span></label>
-            <select id="resPeople" required>
-              <option value="" disabled selected>Choisir</option>
-              <option value="2">2 personnes</option>
-              <option value="3">3 personnes</option>
-              <option value="4">4 personnes</option>
-              <option value="5">5 personnes</option>
-              <option value="6">6 personnes</option>
-              <option value="7">7 personnes</option>
-              <option value="8">8 personnes</option>
-              <option value="9">9 personnes</option>
-              <option value="10">10 personnes</option>
-              <option value="11">11 personnes</option>
-              <option value="12">12 personnes</option>
-            </select>
-            <span class="field-error" id="err-people"></span>
-          </div>
-        </div>
-
-        <!-- Créneaux horaires -->
-        <div class="res-field">
-          <label>Créneau horaire <span class="req">*</span></label>
-          <div class="res-slots" id="resSlots">
-            <button type="button" class="slot-btn" data-time="12:00">🌞 12h00</button>
-            <button type="button" class="slot-btn" data-time="13:00">🌞 13h00</button>
-            <button type="button" class="slot-btn" data-time="19:00">🌙 19h00</button>
-            <button type="button" class="slot-btn" data-time="20:00">🌙 20h00</button>
-            <button type="button" class="slot-btn" data-time="21:00">🌙 21h00</button>
-          </div>
-          <input type="hidden" id="resTime" required>
-          <span class="field-error" id="err-time"></span>
-        </div>
-
-        <!-- Préférence de salle -->
-        <div class="res-field">
-          <label>Préférence de placement</label>
-          <div class="res-seating">
-            <label class="seating-option">
-              <input type="radio" name="seating" value="pas de préférence" checked>
-              <span>🪑 Pas de préférence</span>
-            </label>
-            <label class="seating-option">
-              <input type="radio" name="seating" value="salle">
-              <span>🏠 En salle</span>
-            </label>
-            <label class="seating-option">
-              <input type="radio" name="seating" value="terrasse">
-              <span>🌿 Terrasse</span>
-            </label>
-          </div>
-        </div>
-
-        <!-- Message libre -->
-        <div class="res-field">
-          <label for="resMessage">Message / demande spéciale</label>
-          <textarea
-            id="resMessage"
-            placeholder="Une demande particulière ? (décoration, chaise bébé...)"
-            rows="3"
-            maxlength="500"
-          ></textarea>
-          <span class="char-count" id="charCount">0 / 500</span>
-        </div>
-
-        <div class="res-form-nav">
-          <button type="button" id="toStep1" class="btn-res-back">
-            ← Retour
-          </button>
-          <button type="submit" id="resSubmitBtn" class="btn-res-submit">
-            <span id="resSubmitText">Confirmer la réservation</span>
-            <span id="resSubmitSpinner" class="spinner" style="display:none;"></span>
-          </button>
-        </div>
-
-      </div>
-
-    </form>
-
-
-    <!-- ======= ÉTAPE 3 : Succès ======= -->
-    <div id="panel-step3" style="display:none;">
-      <div class="res-success-panel">
-        <div class="res-success-icon">✅</div>
-        <h2>Réservation enregistrée !</h2>
-        <p id="resSuccessMsg"></p>
-        <div class="res-recap" id="resRecap"></div>
-        <p class="res-success-note">
-          Nous vous contacterons par email ou téléphone pour confirmer votre réservation.
-        </p>
-        <button id="newResBtn" class="btn-res-new">
-          Faire une nouvelle réservation
-        </button>
-      </div>
-    </div>
-
+  <!-- Panneau Semaine -->
+  <div class="tab-panel" id="panel-semaine" role="tabpanel">
+    <div class="menu-loading" id="loading-semaine"><div class="spinner-ring"></div></div>
+    <div class="menu-grid" id="grid-semaine"></div>
   </div>
+
+  <!-- Panneau Week-end -->
+  <div class="tab-panel" id="panel-weekend" role="tabpanel">
+    <div class="menu-loading" id="loading-weekend"><div class="spinner-ring"></div></div>
+    <div class="menu-grid" id="grid-weekend"></div>
+  </div>
+
+  <!-- Panneau Événement -->
+  <div class="tab-panel" id="panel-evenement" role="tabpanel">
+    <div class="menu-loading" id="loading-evenement"><div class="spinner-ring"></div></div>
+    <div class="menu-grid" id="grid-evenement"></div>
+  </div>
+
 </main>
 
 
 <!-- =============================================
-     FOOTER
+     FOOTER — même structure que les autres pages
 ============================================= -->
 <footer>
   <div class="footer-contact">
     <p>Téléphone : <a href="tel:+33123456789">01 23 45 67 89</a></p>
-    <p>Email : <a href="mailto:contact@restaurant.com">contact@restaurant.com</a></p>
+    <p>Email : <a href="/cdn-cgi/l/email-protection#8be8e4e5ffeae8ffcbf9eef8ffeafef9eae5ffa5e8e4e6"><span class="__cf_email__" data-cfemail="31525e5f455052457143544245504443505f451f525e5c">[email&#160;protected]</span></a></p>
     <div class="footer-social">
       <a href="https://facebook.com/restaurant" target="_blank">Facebook</a> |
       <a href="https://instagram.com/restaurant" target="_blank">Instagram</a>
     </div>
   </div>
-  <p>© Restaurant</p>
+  <p class="footer-copyright">© Restaurant — Tous droits réservés</p>
 </footer>
 
 
 <!-- Supabase CDN -->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-<!-- JS -->
-<script type="module" src="js/reservation.js"></script>
-<script src="js/main.js" defer></script>
-
-</body>
-</html>
+<script data-cfasync=
